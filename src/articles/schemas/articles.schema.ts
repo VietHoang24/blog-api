@@ -6,14 +6,25 @@ export type ArticleDocument = Article & Document;
 
 @Schema()
 export class Article {
-  @Prop()
+
+  @Prop({required:true})
   title: string;
+  @Prop({required:true})
+  content: string;
+  @Prop()
+  image: string[];
   @Prop()
   author: Author;
   @Prop()
-  content: string;
+  tag: string[];
+  @Prop()
+  daft: boolean;
+  @Prop({required:true})
+  sumary: string;
   @Prop()
   slug: string;
+  @Prop({required:true})
+  date: Date;
   @Prop()
   comments: [
     {
@@ -32,8 +43,6 @@ export class Article {
   publishDate: string;
   @Prop()
   publishDateTimeStamp: Date;
-  @Prop()
-  createDate: string;
   @Prop()
   createDateTimeStamp: Date;
   @Prop()
